@@ -49,7 +49,9 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Serveur NDSdbapi démarré sur http://localhost:${PORT}`);
+  console.log(
+    `Serveur NDS DB API démarré sur http://localhost:${PORT}`
+  );
 });
 
 module.exports = app;
