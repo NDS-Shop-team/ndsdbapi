@@ -7,6 +7,7 @@ async function getMediaUrls(serialPath, serial, baseUrl) {
   const media = {
     banner: `${baseUrl}/api/v1/images/${serial}/banner`,
     icon: `${baseUrl}/api/v1/images/${serial}/icon`,
+    boxart: `${baseUrl}/api/v1/images/${serial}/boxart`,
     screenshots: {
       compiled: [],
       uncompiled: {

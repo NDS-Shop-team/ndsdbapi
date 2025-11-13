@@ -38,4 +38,20 @@ router.get("/:serial/icon", async (req, res, next) => {
   }
 });
 
+router.get("/:serial/boxart", async (req, res, next) => {
+  try {
+    const serialPath = await findSerialPath(req.params.serial);
+    if (!serialPath) {
+      throw new NotFoundError("SERIAL", { serial: req.params.serial });
+    }
+    res.sendFile(path.join(serialPath, "boxart.jpg"));
+  } catch (error) {
+    if (error instanceof NotFoundError) {
+      next(error);
+    } else {
+      next(new ServerError("Failed to retrieve boxart"));
+    }
+  }
+});
+
 module.exports = router;

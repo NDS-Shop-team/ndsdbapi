@@ -6,6 +6,11 @@ const PORT = process.env.PORT || 3000;
 const { getErrorHtml } = require("./views/templates");
 const { APIError, ServerError } = require("./utils/errors");
 
+const { version } = require("../package.json");
+app.get("/api/v1/version", (req, res) => {
+  res.json({ version: version });
+});
+
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(express.json());
 
@@ -15,10 +20,9 @@ app.use("/api/v1/screenshots", require("./routes/screenshots"));
 app.use("/api/v1/thumbnails", require("./routes/thumbnails"));
 app.use("/api/v1/stats", require("./routes/stats"));
 app.use("/api/v1/uptimes", require("./routes/uptimes"));
-app.use("/api/v1/docs", require("./routes/docs"));
 
 app.get("/", (req, res) => {
-  res.redirect("/api/v1/docs");
+  res.redirect("/docs/");
 });
 
 app.use("/api", (req, res, next) => {
