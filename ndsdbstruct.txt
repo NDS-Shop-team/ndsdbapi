@@ -2,6 +2,7 @@ db/nds/
 ├── base/                     # Base content folder (Standard NDS games)
 │   └── [serial]/             # Unique identifier (e.g., NTR-ADME-USA)
 │       ├── banner.jpg        # Banner image for the content
+│       ├── boxart.jpg        # Boxart image for the content
 │       ├── icon.jpg          # Icon image for the content
 │       ├── top_image.jpg     # Top image (main display image)
 │       ├── meta.json         # Metadata file (JSON format)
